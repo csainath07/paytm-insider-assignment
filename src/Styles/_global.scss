@@ -1,0 +1,31 @@
+@import './mixin';
+@import './variables';
+
+html,
+body {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+}
+
+.wrapper {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+button {
+  border: none;
+  text-transform: uppercase;
+
+  &.primary {
+    padding: 10px 25px;
+    background-color: $google-blue;
+    @include font(14px, 500, $white);
+  }
+
+  &.secondary {
+    padding: 10px 25px;
+    background-color: $border;
+    @include font(14px, 500, $value);
+    border: 2px solid $border;
+  }
+}

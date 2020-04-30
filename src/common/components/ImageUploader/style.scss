@@ -1,0 +1,31 @@
+@import '../../../Styles/variables';
+@import '../../../Styles/mixin';
+
+.image-upload-container {
+  padding: 30px;
+  background-color: $main-background-color;
+  border: 2px solid $border;
+  @include flex(center, center, column);
+
+  input[type=file] {
+    display: none;
+  }
+  
+  .upload-button {
+    @include flex(center, center, column);
+  }
+
+  .note {
+    margin-top: 10px;
+    @include font(12px, 400, $value);
+  }
+
+  .error {
+    padding: 10px 30px;
+    margin-bottom: 20px;
+    background-color: $error-background;
+    border: 1px solid $error;
+    @include font(14px, 500, $error);
+    display: inline-block;
+  }
+}

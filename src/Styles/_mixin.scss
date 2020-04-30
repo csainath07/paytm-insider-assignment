@@ -1,0 +1,13 @@
+@mixin font($fontSize: 14px, $fontWeight: 300, $fontColor: #000, $fontFamily: 'Oswald', ) {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  color: $fontColor;
+}
+
+@mixin flex($justifyContent: 'flex-start', $alignItems: 'flex-start', $flexDirection: 'row') {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-direction: $flexDirection;
+}
