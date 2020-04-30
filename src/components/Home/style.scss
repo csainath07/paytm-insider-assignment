@@ -1,2 +1,14 @@
 @import '../../Styles/variables';
 @import '../../Styles/mixin';
+
+.home-container {
+  .image-previews {
+    @include flex(center, flex-start);
+    flex-wrap: wrap;
+  }
+
+  .save-button {
+    margin: 20px;
+    @include flex(center, center);
+  }
+}

@@ -7,11 +7,6 @@ body {
   font-weight: 400;
 }
 
-.wrapper {
-  width: 1024px;
-  margin: 0 auto;
-}
-
 button {
   border: none;
   text-transform: uppercase;
@@ -27,5 +22,11 @@ button {
     background-color: $border;
     @include font(14px, 500, $value);
     border: 2px solid $border;
+  }
+
+  &:disabled {
+    background-color: $border;
+    color: $box-shadow;
+    cursor: not-allowed;
   }
 }

@@ -1,0 +1,24 @@
+@import '../../../Styles/variables';
+@import '../../../Styles/mixin';
+
+.image-preview-container {
+  margin: 10px;
+  position: relative;
+  overflow: hidden;
+
+  canvas {
+    background-color: $border;
+    border: 2px solid $value;
+  }
+
+  .crop-option-overlay {
+    width: 100%;
+    padding: 30px;
+    position: absolute;
+    top: 0;
+
+    button {
+      background-color: $success;
+    }
+  }
+}

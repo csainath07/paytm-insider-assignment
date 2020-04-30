@@ -1,0 +1,39 @@
+@import '../../../Styles/variables';
+@import '../../../Styles/mixin';
+
+
+.crop-image-modal-container {
+  width: 100%;
+  background-color: $box-shadow;
+  position: fixed;
+  top:0px;
+  left: 0px;
+  bottom: 0px;
+  z-index: 1;
+  @include flex(center, center, column);
+
+  .crop-image-modal {
+    background-color: $white;
+    border: 2px solid $value;
+
+    .crop-modal-header {
+      padding: 30px;
+      background-color: $white;
+      @include font(22px, 600, $value);
+    }
+
+    .crop-modal-body {
+      width: 600px;
+      height: 600px;
+    }
+
+    .crop-modal-footer {
+      padding: 20px;
+      @include flex(flex-end, center);
+
+      .secondary {
+        margin-right: 10px;
+      }
+    }
+  }
+}

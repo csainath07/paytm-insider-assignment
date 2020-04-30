@@ -2,10 +2,10 @@ import React, { useState, useRef, memo } from 'react';
 import './style.scss';
 
 const ImageUploader = ({
+  file = null,
   getFile = () => { }
 }) => {
   //state
-  const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
 
   //input file element reference
@@ -16,7 +16,6 @@ const ImageUploader = ({
     if (files && files[0]) {
       validateImage(files[0]);
     } else {
-      setFile(null);
       getFile(null);
     }
   }
@@ -33,10 +32,9 @@ const ImageUploader = ({
           if (this.width === 1024 && this.height === 1024) {
             getFile(file);
             setError(null);
-            setFile(file);
           } else {
             inputRef.current.value = "";
-            setError("Image resolution must be 1024x1024");
+            setError("Image has to be exactly 1024x1024");
           }
         }
       }
@@ -48,7 +46,6 @@ const ImageUploader = ({
 
   const handleReset = () => {
     inputRef.current.value = "";
-    setFile(null);
     getFile(null);
   }
 
@@ -73,7 +70,7 @@ const ImageUploader = ({
               type="button"
               className="primary"
               onClick={() => inputRef.current.click()}
-            >Upload</button>
+            >Select Image</button>
             <p className="note"><strong>Note:</strong> Image file (.jpeg, .png) only with 1024x1024 resolution</p>
           </div> :
           <button
