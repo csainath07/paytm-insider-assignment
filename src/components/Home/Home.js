@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { ImageUploader, ImagePreview } from '../../common/components';
+import { ImageUploader, ImagePreview, Loading } from '../../common/components';
+import { useHistory } from 'react-router-dom';
 
 const Home = () => {
   //state
   const [selectedFile, setFile] = useState(null);
   const [files, setFiles] = useState({});
+  const [isLoading, toggleLoading] = useState(false);
+  const history = useHistory();
 
   const sizes = [{
     type: "Gallery",
@@ -28,12 +31,33 @@ const Home = () => {
     setFile(file);
   }
 
-  const handleSaveImages = () => {
-    console.log(files);
+  const handleSaveImages = async () => {
+    toggleLoading(true);
+    try {
+      const fd = new FormData();
+      for (let key in files) {
+        fd.append("images", files[key]);
+      }
+      const response = await fetch('http://localhost:8000/api/file/upload', {
+        method: 'post',
+        body: fd
+      });
+      const { data } = await response.json();
+      history.push({
+        pathname: '/success',
+        state: data
+      });
+    } catch (err) {
+      toggleLoading(false);
+    }
   }
 
   return (
     <div className="home-container">
+      {
+        isLoading ?
+          <Loading text="Uploading..." /> : ''
+      }
       <ImageUploader
         file={selectedFile}
         getFile={handleFileChange}

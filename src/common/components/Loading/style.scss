@@ -1,0 +1,17 @@
+@import '../../../Styles/variables';
+@import '../../../Styles/mixin';
+
+.loading-container {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  background-color: $box-shadow;
+  z-index: 2;
+  @include flex(center, center, column);
+
+  span {
+    @include font(30px, 600, $white);
+    text-transform: uppercase;
+  }
+}
