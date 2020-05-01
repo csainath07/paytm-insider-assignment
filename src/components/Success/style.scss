@@ -4,14 +4,27 @@
 .success-container {
   .heading {
     padding: 20px;
+    margin-bottom: 30px;
     background-color: $main-background-color;
     border: 2px solid $border;
     @include flex(center, center);
     @include font(30px, 600, $success);
+    position: relative;
+
+    .go-back {
+      @include font(16px, 600, $code);
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .previews {
-    @include flex(center, center);
+    @include flex(center, flex-start);
     flex-wrap: wrap;
 
     img {

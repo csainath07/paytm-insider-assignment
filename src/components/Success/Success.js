@@ -15,6 +15,7 @@ const Success = () => {
     <div className="success-container">
       <div className="heading">
         <h4>Images uploaded successfully!</h4>
+        <span className="go-back" onClick={() => history.push('/')}>Back</span>
       </div>
       <div className="previews">
         {

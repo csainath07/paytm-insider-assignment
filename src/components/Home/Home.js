@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ImageUploader, ImagePreview, Loading } from '../../common/components';
+import { uploadFiles } from '../../common/api';
 import { useHistory } from 'react-router-dom';
 
 const Home = () => {
@@ -39,11 +40,7 @@ const Home = () => {
       for (let key in files) {
         fd.append("images", files[key]);
       }
-      const response = await fetch('http://localhost:8000/api/file/upload', {
-        method: 'post',
-        body: fd
-      });
-      const { data } = await response.json();
+      const data = await uploadFiles(fd);
       toggleError(false);
       history.push({
         pathname: '/success',
