@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, memo, useState, useCallback } from 'react';
 import CropImage from '../CropImage';
+import { dataUriToFile } from '../../../utils/utils';
 import './style.scss';
 
 const ImagePreview = ({
@@ -15,17 +16,6 @@ const ImagePreview = ({
   const canvas = useRef(null);
 
   const setPreview = useCallback((img, x, y, cropWidth, cropHeight, canvas) => {
-    const dataUriToFile = (dataUri = null) => {
-      if (dataUri && dataUri.split(',')[0].indexOf('base64') >= 0) {
-        const byteString = window.atob(dataUri.split(',')[1]);
-        let ia = new Uint8Array(byteString.length);
-        for (var i = 0; i < byteString.length; i++) {
-          ia[i] = byteString.charCodeAt(i);
-        }
-        const blob = new Blob([ia], { type: 'image/jpeg' });
-        return new File([blob], `img_${type}_${new Date().getTime()}_${width}x${height}.jpg`, { type: "image/jpeg" });
-      }
-    }
     const ctx = canvas.current.getContext('2d');
     ctx.drawImage(
       img,
@@ -39,7 +29,7 @@ const ImagePreview = ({
       height
     );
     const dataUri = canvas.current.toDataURL("image/jpeg", 1.0);
-    const file = dataUriToFile(dataUri);
+    const file = dataUriToFile(dataUri, width, height, type);
     getFile({ file, key: `${width}x${height}` });
     // eslint-disable-next-line
   }, [width, height, type]);
