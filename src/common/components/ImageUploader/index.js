@@ -3,6 +3,8 @@ import './style.scss';
 
 const ImageUploader = ({
   file = null,
+  requiredWidth = 1024,
+  requiredHeight = 1024,
   getFile = () => { }
 }) => {
   //state
@@ -29,12 +31,12 @@ const ImageUploader = ({
         const img = new Image();
         img.src = e.target.result;
         img.onload = function () {
-          if (this.width === 1024 && this.height === 1024) {
+          if (this.width === requiredWidth && this.height === requiredHeight) {
             getFile(file);
             setError(null);
           } else {
             inputRef.current.value = "";
-            setError("Image has to be exactly 1024x1024");
+            setError(`Image has to be exactly ${requiredWidth} x ${requiredHeight}`);
           }
         }
       }

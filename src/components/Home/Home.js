@@ -70,6 +70,8 @@ const Home = () => {
           </div> : ''
       }
       <ImageUploader
+        requiredWidth={1024}
+        requiredHeight={1024}
         file={selectedFile}
         getFile={handleFileChange}
       />
