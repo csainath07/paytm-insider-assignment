@@ -31,6 +31,7 @@ const Home = () => {
 
   const handleFileChange = (file) => {
     setFile(file);
+    toggleError(false);
   }
 
   const handleSaveImages = async () => {
