@@ -6,6 +6,7 @@ const Home = () => {
   //state
   const [selectedFile, setFile] = useState(null);
   const [files, setFiles] = useState({});
+  const [error, toggleError] = useState(false);
   const [isLoading, toggleLoading] = useState(false);
   const history = useHistory();
 
@@ -43,11 +44,13 @@ const Home = () => {
         body: fd
       });
       const { data } = await response.json();
+      toggleError(false);
       history.push({
         pathname: '/success',
         state: data
       });
     } catch (err) {
+      toggleError(true);
       toggleLoading(false);
     }
   }
@@ -57,6 +60,14 @@ const Home = () => {
       {
         isLoading ?
           <Loading text="Uploading..." /> : ''
+      }
+      {
+        error ?
+          <div className="main-error">
+            <div className="error">
+              <p>Image Uploading Fail!</p>
+            </div>
+          </div> : ''
       }
       <ImageUploader
         file={selectedFile}

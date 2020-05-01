@@ -19,13 +19,4 @@
     margin-top: 10px;
     @include font(12px, 400, $value);
   }
-
-  .error {
-    padding: 10px 30px;
-    margin-bottom: 20px;
-    background-color: $error-background;
-    border: 1px solid $error;
-    @include font(14px, 500, $error);
-    display: inline-block;
-  }
 }

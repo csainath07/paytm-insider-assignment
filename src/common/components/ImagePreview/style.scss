@@ -6,6 +6,17 @@
   position: relative;
   overflow: hidden;
 
+  .image-resolution {
+    padding: 5px 10px;
+    display: inline-block;
+    background-color: $code;
+    border-radius: 10px;
+    @include font(12px, 400, $white);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
   canvas {
     background-color: $border;
     border: 2px solid $value;
@@ -18,7 +29,7 @@
     top: 0;
 
     button {
-      background-color: $success;
+      background-color: $code;
     }
   }
 }

@@ -2,5 +2,22 @@
 @import '../../Styles/mixin';
 
 .success-container {
-  
+  .heading {
+    padding: 20px;
+    background-color: $main-background-color;
+    border: 2px solid $border;
+    @include flex(center, center);
+    @include font(30px, 600, $success);
+  }
+
+  .previews {
+    @include flex(center, center);
+    flex-wrap: wrap;
+
+    img {
+      margin: 10px;
+      border:2px solid $value;
+      display: inline-block;
+    }
+  }
 }

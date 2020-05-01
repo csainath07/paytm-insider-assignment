@@ -11,4 +11,8 @@
     margin: 20px;
     @include flex(center, center);
   }
+
+  .main-error {
+    @include flex(center, center);
+  }
 }

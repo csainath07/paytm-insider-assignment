@@ -67,6 +67,7 @@ const ImagePreview = ({
 
   return (
     <div className="image-preview-container">
+      <span className="image-resolution">{width} x {height}</span>
       <canvas
         width={width}
         height={height}
@@ -85,7 +86,7 @@ const ImagePreview = ({
         image ?
           <div className="crop-option-overlay">
             <button type="button" className="primary" onClick={() => toggleModal(!openCropModal)}>
-              crop
+              resize
             </button>
           </div> : ''
       }
