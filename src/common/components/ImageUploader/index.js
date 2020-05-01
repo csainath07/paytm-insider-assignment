@@ -73,7 +73,7 @@ const ImageUploader = ({
               className="primary"
               onClick={() => inputRef.current.click()}
             >Select Image</button>
-            <p className="note"><strong>Note:</strong> Image file (.jpeg, .png) only with 1024x1024 resolution</p>
+            <p className="note"><strong>Note:</strong> Image file (.jpeg, .png) only with {requiredWidth} x {requiredHeight} resolution</p>
           </div> :
           <button
             type="button"
